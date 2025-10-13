@@ -1,0 +1,22 @@
+name: ELT_project_dbt
+
+profile: ELT_project_dbt
+
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  ELT_project_dbt:
+    # Materialize staging models as views, and transformed as tables
+    staging:
+      +schema: public
+      +materialized: view
+    warehouse:
+      +schema: superstore
+      +materialized: table
+    #marts:
+     # +materialized: table
