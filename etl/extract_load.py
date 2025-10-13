@@ -24,3 +24,10 @@ def extract_and_load():
         print(f"❌ Parsing error in file '{path}': {pe}")
     except Exception as e:
         print(f"❌ Failed to load table '{table_name}': {e}")
+
+def main():
+    #running extract and loading process
+    extract_and_load()
+
+if __name__ == "__main__":
+    main()
