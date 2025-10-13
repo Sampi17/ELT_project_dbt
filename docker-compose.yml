@@ -1,0 +1,43 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: psql_db_1.0
+    hostname: posgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+    env_file: .env  
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  etl:
+    build: 
+      context: ./etl
+      dockerfile: Dockerfile
+    image: extract_load
+    env_file: .env
+    volumes:
+      - ./etl/raw:/app/raw
+      - ./etl:/app/etl     # mount Python code (hot reload your scripts)
+    working_dir: /app/etl
+    depends_on:
+      - postgres
+    command: python extract_load.py
+
+  pgadmin:
+      image: dpage/pgadmin4
+      container_name: pgadmin_1.0
+      environment:
+        PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}  
+        PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+
+      ports:
+        - "5050:80"
+      depends_on:
+        - postgres
+
+volumes:
+  postgres_data:
+
+
+    
