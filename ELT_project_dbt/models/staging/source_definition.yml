@@ -1,0 +1,18 @@
+version: 2
+
+source:
+  - name: raw_data
+    database: staging
+    schema: public
+    tables:
+      - name: branch
+        description: "This table contains records showing the regions, cities, and districts associated with 161 different branches. For each branch, it includes a unique branch ID, region, city, district, the affiliated branch center, as well as latitude and longitude coordinates. The dataset can be used to analyze the geographical distribution and regional organization of the branches."  
+      - name: categories
+        description: "This table contains 21 main categories, 69 first-level subcategories, 164 second-level subcategories, 747 third-level subcategories and a total of 27,000 different product records. For each product, it includes a unique product ID, multi-level category information (Category1–Category4 and their IDs), brand name, product code, and product name. The dataset can be used to analyze the hierarchical category structure of the products and the distribution of brands."
+      - name: customers
+        description: "This table contains 99,998 unique customer records. For each customer, it includes user ID, username in email format, full name, status, gender, date of birth, region, city, town, district, and full address information. The dataset provides detailed insights into the customer base with demographic and geographical attributes, enabling in-depth analysis."
+      - name: order_details
+        description: "This table consists of 51,185,032 rows covering a total of 230,323,422 sold items. Each row represents a product line within an order. It includes order ID, order detail ID, quantity, unit price, total price, product ID, and product code. The dataset enables detailed product-level analysis of all orders."
+      - name: orders
+        description: "This table contains 10,235,193 unique order records. Each order includes the order ID, branch ID, order date, customer ID, customer full name, and total basket value. The dataset enables analysis of orders by time, customer, and branch dimensions."
+        
