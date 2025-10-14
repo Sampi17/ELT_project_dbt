@@ -1,10 +1,3 @@
-{{
-    config(
-        materialized='view',
-        alias='staging_branch'
-    )
-}}
-
 --Renaming columns, lowercase column names and fixing data types
 SELECT       
     "BRANCH_ID"  as branch_id, 

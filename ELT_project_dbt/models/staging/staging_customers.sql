@@ -1,10 +1,3 @@
-{{ 
-    config(
-        materialized='view',
-        alias='staging_customers'
-    )
-}}
-
 --Renaming columns, lowercase column names and fixing data types
 SELECT 
     "USERID" AS customer_id,

@@ -1,10 +1,3 @@
-{{ 
-    config(
-        materialized='view',
-        alias='staging_order_details'
-    )
-}}
-
 --Renaming columns, lowercase column names and fixing data types
 SELECT 
     "ORDERID" AS order_id,

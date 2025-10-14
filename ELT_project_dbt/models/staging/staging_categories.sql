@@ -1,10 +1,3 @@
-{{ 
-    config(
-        materialized='view',
-        alias='staging_categories'
-    )
-}}
-
 --Renaming columns, lowercase column names and fixing data types
 SELECT 
     "ITEMID" AS category_id,
