@@ -12,4 +12,4 @@ SELECT
     CAST("CITY" AS VARCHAR(50)) as city,
     CAST("TOWN" AS VARCHAR(50))  as surburb, 
     CAST("BRANCH_TOWN" AS VARCHAR(50)) as branch_surburb
-FROM {{source('raw_data','branch')}}
+FROM {{source('raw_data','branches')}}
