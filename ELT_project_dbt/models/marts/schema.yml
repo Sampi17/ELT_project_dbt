@@ -9,32 +9,37 @@ models:
       - name: id
         description: "Primary key for the  fact table."
         tests:
+          arguments:
           - unique
           - not_null
       - name: customer_key
         description: "Foreign key to the dim_customers table."
         tests:
           - relationships:
-              to: ref('dim_customers')
-              field: customer_id
+              arguments:
+                to: ref('dim_customers')
+                field: customer_id
       - name: store_key
         description: "Foreign key to the dim_stores table"
         tests:
          - relationships:
-            to: ref('dim_stores')
-            field: store_id
+            arguments:
+              to: ref('dim_stores')
+              field: store_id
       - name: product_key
         description: "Foreign key to the dim_product table"
         tests:
          - relationships:
-            to: ref('dim_product')
-            field: prouduct_id
+            arguments:
+              to: ref('dim_product')
+              field: prouduct_id
       - name: category_key
         description: "Foreign key to the dim_category table"
         tests:
          - relationships:
-            to: ref('dim_category')
-            field: category_id
+            arguments:
+              to: ref('dim_category')
+              field: category_id
    #table level         
   - name: dim_customers
     description: "Dimension table with one row per customer."
@@ -43,8 +48,9 @@ models:
       - name: customer_id
         description: "Primary key for the customer."
         tests:
-          - unique
-          - not_null
+          arguments:
+            - unique
+            - not_null
     #table level       
   - name: dim_category
     description: "Dimension table with one row per category."
@@ -53,8 +59,9 @@ models:
       - name: category_id
         description: "Primary key for the category."
         tests:
-          - unique
-          - not_null
+          arguments:
+            - unique
+            - not_null
     #table level        
   - name: dim_product
     description: "Dimension table with one row per product."
@@ -63,8 +70,9 @@ models:
       - name: prouduct_id
         description: "Primary key for the product."
         tests:
-          - unique
-          - not_null
+          arguments:
+            - unique
+            - not_null
     #table level
   - name: dim_stores
     description: "Dimension table with one row per store."
@@ -73,5 +81,6 @@ models:
       - name: store_id
         description: "Primary key for the store."
         tests:
-          - unique
-          - not_null
+          arguments:
+            - unique
+            - not_null
