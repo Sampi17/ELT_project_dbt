@@ -45,7 +45,7 @@ models:
                 field: category_id
 
   # table level         
-  - name: dim_customers
+  - name: dim_customer
     description: "Dimension table with one row per customer."
     columns:
       - name: customer_id
