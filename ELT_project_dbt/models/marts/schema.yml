@@ -1,17 +1,17 @@
 version: 2
 
 models:
-#table level 
+  # table level 
   - name: superstore_fact
     description: "Fact table containing one row per order with revenue metrics."
-    #column level
+    # column level
     columns:
       - name: id
-        description: "Primary key for the  fact table."
+        description: "Primary key for the fact table."
         tests:
-          arguments:
           - unique
           - not_null
+
       - name: customer_key
         description: "Foreign key to the dim_customers table."
         tests:
@@ -19,68 +19,67 @@ models:
               arguments:
                 to: ref('dim_customers')
                 field: customer_id
+
       - name: store_key
-        description: "Foreign key to the dim_stores table"
+        description: "Foreign key to the dim_stores table."
         tests:
-         - relationships:
-            arguments:
-              to: ref('dim_stores')
-              field: store_id
+          - relationships:
+              arguments:
+                to: ref('dim_stores')
+                field: store_id
+
       - name: product_key
-        description: "Foreign key to the dim_product table"
+        description: "Foreign key to the dim_product table."
         tests:
-         - relationships:
-            arguments:
-              to: ref('dim_product')
-              field: prouduct_id
+          - relationships:
+              arguments:
+                to: ref('dim_product')
+                field: product_id
+
       - name: category_key
-        description: "Foreign key to the dim_category table"
+        description: "Foreign key to the dim_category table."
         tests:
-         - relationships:
-            arguments:
-              to: ref('dim_category')
-              field: category_id
-   #table level         
+          - relationships:
+              arguments:
+                to: ref('dim_category')
+                field: category_id
+
+  # table level         
   - name: dim_customers
     description: "Dimension table with one row per customer."
-    #column level
     columns:
       - name: customer_id
         description: "Primary key for the customer."
         tests:
-          arguments:
-            - unique
-            - not_null
-    #table level       
+          - unique
+          - not_null
+
+  # table level       
   - name: dim_category
     description: "Dimension table with one row per category."
-    #column level
     columns:
       - name: category_id
         description: "Primary key for the category."
         tests:
-          arguments:
-            - unique
-            - not_null
-    #table level        
+          - unique
+          - not_null
+
+  # table level        
   - name: dim_product
     description: "Dimension table with one row per product."
-    #column level
     columns:
-      - name: prouduct_id
+      - name: product_id
         description: "Primary key for the product."
         tests:
-          arguments:
-            - unique
-            - not_null
-    #table level
+          - unique
+          - not_null
+
+  # table level
   - name: dim_stores
     description: "Dimension table with one row per store."
-    #column level
     columns:
       - name: store_id
         description: "Primary key for the store."
         tests:
-          arguments:
-            - unique
-            - not_null
+          - unique
+          - not_null
