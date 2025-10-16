@@ -1,5 +1,5 @@
 --creating product dimension table 
-CREATE TABLE dim_product AS
+--CREATE TABLE dim_product AS
 SELECT 
     product_id,
     brand,

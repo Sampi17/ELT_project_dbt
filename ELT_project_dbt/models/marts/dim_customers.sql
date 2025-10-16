@@ -1,4 +1,4 @@
 
-CREATE TABLE dim_customer AS
+--CREATE TABLE dim_customer AS
 SELECT *
 FROM {{ref('staging_customers')}}
