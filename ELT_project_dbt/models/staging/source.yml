@@ -1,11 +1,11 @@
 version: 2
 
-source:
+sources:
   - name: raw_data
-    database: staging
+    #database: staging
     schema: public
     tables:
-      - name: branch
+      - name: branches
         description: "This table contains records showing the regions, cities, and districts associated with 161 different branches. For each branch, it includes a unique branch ID, region, city, district, the affiliated branch center, as well as latitude and longitude coordinates. The dataset can be used to analyze the geographical distribution and regional organization of the branches."  
       - name: categories
         description: "This table contains 21 main categories, 69 first-level subcategories, 164 second-level subcategories, 747 third-level subcategories and a total of 27,000 different product records. For each product, it includes a unique product ID, multi-level category information (Category1–Category4 and their IDs), brand name, product code, and product name. The dataset can be used to analyze the hierarchical category structure of the products and the distribution of brands."

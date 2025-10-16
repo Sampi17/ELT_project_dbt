@@ -1,5 +1,5 @@
 --CREATING FACT TABLE
-CREATE TABLE superstore_fact AS
+--CREATE TABLE superstore_fact AS
 SELECT 
     od.order_id AS id,
     o.branch_id AS store_key,
@@ -7,8 +7,8 @@ SELECT
     od.category_id AS category_key,
     od.product_id AS product_key,
     od.unit_price,
-    od.total_price,
-    od.status
+    od.total_price
+    
 FROM {{ref('staging_order_details')}} od
 LEFT JOIN {{ref('staging_orders')}} o
 ON od.order_id = o.order_id 
